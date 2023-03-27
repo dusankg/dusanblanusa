@@ -1,156 +1,194 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Мени</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #f2f2f2;
-      }
-      
-      h1 {
-        text-align: center;
-        color: #444444;
-        margin-top: 30px;
-      }
-      
-      h2 {
-        color: #777777;
-        margin-bottom: 10px;
-      }
-      
-      ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-      }
-      
-      li {
-        margin-bottom: 15px;
-        padding: 10px;
-        background-color: #ffffff;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        border-radius: 5px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-      
-      li span {
-        font-size: 16px;
-        font-weight: bold;
-      }
-      
-      li p {
-        margin: 0;
-        font-size: 16px;
-        color: #777777;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Мени</h1>
-    <h2>Еспресо кафе</h2>
-    <ul>
-      <li>
-        <span>Еспресо краћи</span>
-        <p>$0</p>
-      </li>
-      <li>
-        <span>Епсресо дужи</span>
-        <p>$0</p>
-      </li>
-      <li>
-        <span>Еспресо са млеком</span>
-        <p>$0</p>
-      </li>
-      <li>
-        <span>Капућино</span>
-        <p>$0</p>
-      </li>
-      <li>
-        <span>Лате</span>
-        <p>$0</p>
-      </li>
-      <li>
-        <span>Мока</span>
-        <p>$0</p>
-      </li>
-      <li>
-        <span>Еспресо са укусом</span>
-        <p>$0</p>
-      </li>
-    </ul>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 
-	<h2>Остале кафе</h2>
-    <ul>
-      <li>
-        <span>Домаћа кафа</span>
-        <p>$0</p>
-      </li>
-      <li>
-        <span>Филтер кафа</span>
-        <p>$0</p>
-      </li>
-      <li>
-        <span>Нес (хладни, топли)</span>
-        <p>$0</p>
-      </li>
-    </ul>
+<section id="our_menu" class="pt-5 pb-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="page_title text-center mb-4">
+						<h1>Кафе</h1>
+						<div class="single_line"></div>
+					</div>
+				</div>
+			</div>
 
-	<h2>Чајеви</h2>
-    <ul>
-      <li>
-        <span>Камилица</span>
-        <p>$0</p>
-      </li>
-      <li>
-        <span>Нана</span>
-        <p>$0</p>
-      </li>
-      <li>
-        <span>Микс камилица - нана</span>
-        <p>$0</p>
-      </li>
-      <li>
-        <span>Ароматизовани</span>
-        <p>$0</p>
-      </li>
-      <li>
-        <span>Можда има још неки, питати домаћина</span>
-        <p>$0</p>
-      </li>
-    </ul>
+			<div class="row">
+				<div class="tab-content col-lg-12" id="myTabContent">
+					<div class="tab-pane fade show active" id="breakfast" role="tabpanel" aria-labelledby="breakfast-tab">
+						<div class="row">
+              <div class="single_menu">
+                <img src="https://i.imgur.com/f7dS2Tu.jpeg" alt="burger">
+                <div class="menu_content">
+                  <h4>Еспресо краћи<span>$0</span></h4>
+                  <p></p>
+                </div>
+              </div>
+              <div class="single_menu">
+                <img src="https://i.imgur.com/h8ON8pv.jpeg" alt="black coffee">
+                <div class="menu_content">
+                  <h4>Епсресо дужи<span>$0</span></h4>
+                </div>
+              </div>
+              <div class="single_menu">
+                <img src="https://i.imgur.com/lYKUORL.jpg" alt="fried rice">
+                <div class="menu_content">
+                  <h4>Еспресо са млеком <span>$0</span></h4>
+                </div>
+              </div>
+              <div class="single_menu">
+                <img src="https://i.imgur.com/DqpA4Iw.jpeg" alt="meat">
+                <div class="menu_content">
+                  <h4>Капућино<span>$24</span></h4>
+                </div>
+              </div>
+            
 
-	<h2>Безалкохолна пића</h2>
-    <ul>
-      <li>
-        <span>Цедевита</span>
-        <p>$0</p>
-      </li>
-      <li>
-        <span>Лимунада</span>
-        <p>$0</p>
-      </li>
-      <li>
-        <span>Соци неки ако има</span>
-        <p>$0</p>
-      </li>
-    </ul>
+            <div class="col-md-6">
+              <div class="single_menu">
+                <img src="https://i.imgur.com/zCcn0UI.jpeg" alt="burger">
+                <div class="menu_content">
+                  <h4>Лате<span>$0</span></h4>
+                </div>
+              </div>
+              <div class="single_menu">
+                <img src="https://i.imgur.com/bsRWqh8.jpeg" alt="black coffee">
+                <div class="menu_content">
+                  <h4>Мока<span>$0</span></h4>
+                </div>
+              </div>
+              <div class="single_menu">
+                <img src="https://i.imgur.com/f7dS2Tu.jpeg" alt="fried rice">
+                <div class="menu_content">
+                  <h4>Еспресо са укусом<span>$0</span></h4>
+                </div>
+              </div>
+              <div class="single_menu">
+                <img src="https://i.imgur.com/4UR1zte.jpeg" alt="meat">
+                <div class="menu_content">
+                  <h4>Домаћа кафа<span>$0</span></h4>
+                </div>
+              </div>
+              <div class="single_menu">
+                <img src="https://images.food52.com/ngg_HIuBwkp0R_Ts4dYA4uT4koI=/1200x900/5a848cfa-a222-41bb-b103-8d50d088059c--2019-0211_hario_original-v6-dripper-and-stand_1x1_rocky-luten_024.jpg" alt="meat">
+                <div class="menu_content">
+                  <h4>Филтер кафа<span>$0</span></h4>
+                </div>
+              </div>
+              <div class="single_menu">
+                <img src="https://www.nestleprofessional.us/sites/default/files/styles/np_hero_small/public/2022-06/nescafe-commercial-coffee-machine-landing-page-image.jpeg?h=628c4f0a&itok=GQO_Co30" alt="meat">
+                <div class="menu_content">
+                  <h4>Нес<span>$0</span></h4>
+                  <p>Топли, хладни</p>
+                </div>
+              </div> 
 
-	<h2>Алкохолна пића</h2>
-    <ul>
-      <li>
-        <span>Пиво које је тренутно у избору</span>
-        <p>$0</p>
-      </li>
-      <li>
-        <span>Ракија</span>
-        <p>$0</p>
-      </li>
-    </ul>
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="page_title text-center mb-4">
+                    <h1>Чајеви</h1>
+                    <div class="single_line"></div>
+                  </div>
+                </div>
+              </div>
 
-	<h2>*Пиво ладимо, али соци јок*</h2>
+              <div class="single_menu">
+                <img src="https://post.healthline.com/wp-content/uploads/2020/09/chamomile-tea-thumb-1-732x549.jpg" alt="meat">
+                <div class="menu_content">
+                  <h4>Камилица<span>$0</span></h4>
+                </div>
+              </div> 
 
-  </body>
-</html>
+              <div class="single_menu">
+                <img src="https://previews.123rf.com/images/alexraths/alexraths1502/alexraths150200007/36370738-%E3%82%AB%E3%83%A2%E3%83%9F%E3%83%BC%E3%83%AB%E3%81%A8%E6%96%B0%E9%AE%AE%E3%81%AA%E3%83%9F%E3%83%B3%E3%83%88%E3%81%AE%E8%91%89%E3%81%A8%E3%83%8F%E3%83%BC%E3%83%96%E3%83%86%E3%82%A3%E3%83%BC.jpg" alt="meat">
+                <div class="menu_content">
+                  <h4>Микс нана и камилица<span>$0</span></h4>
+                </div>
+              </div> 
+
+
+              <div class="single_menu">
+                <img src="https://www.cleaneatingkitchen.com/wp-content/uploads/2022/08/teacup-with-mint-tea-hero.jpg" alt="meat">
+                <div class="menu_content">
+                  <h4>Нана<span>$0</span></h4>
+                </div>
+              </div> 
+
+              <div class="single_menu">
+                <img src="https://www.shutterstock.com/image-photo/red-tea-cup-260nw-492175309.jpg" alt="meat">
+                <div class="menu_content">
+                  <h4>Ароматизовани<span>$0</span></h4>
+                </div>
+              </div> 
+
+              <div class="single_menu">
+                <img src="https://www.verywellhealth.com/thmb/wOpYMxG1V_VxYcp4iJRmxRO4lZc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-693893647-588d21e413dd411cb1f2b0a0ea3e02da.jpg" alt="meat">
+                <div class="menu_content">
+                  <h4>Чај дана<span>$0</span></h4>
+                </div>
+              </div> 
+
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="page_title text-center mb-4">
+                    <h1>Безалкохолна пића</h1>
+                    <div class="single_line"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="single_menu">
+                <img src="https://www.cedevita.com/var/site/storage/images/naslovnica/proizvodi/naranca/200g/6469-6-cro-HR/200g.png" alt="meat">
+                <div class="menu_content">
+                  <h4>Цедевита<span>$0</span></h4>
+                </div>
+              </div> 
+
+              <div class="single_menu">
+                <img src="https://lmld.org/wp-content/uploads/2022/04/Lemonade-4.jpg" alt="meat">
+                <div class="menu_content">
+                  <h4>Лимунада<span>$0</span></h4>
+                </div>
+              </div> 
+
+              <div class="single_menu">
+                <img src="https://www.orange.rs/wp-content/uploads/2019/08/crni-i-zuti-sok.jpg" alt="meat">
+                <div class="menu_content">
+                  <h4>Соци неки ако има<span>$0</span></h4>
+                </div>
+              </div> 
+
+
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="page_title text-center mb-4">
+                    <h1>Алкохолна пића</h1>
+                    <div class="single_line"></div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="single_menu">
+                <img src="https://www.calix.rs/uploads/store/products/images/banjalucko-pivo-limenka-60ec256941255.webp" alt="meat">
+                <div class="menu_content">
+                  <h4>Пиво које је тренутно у избору<span>$0</span></h4>
+                </div>
+              </div> 
+
+              <div class="single_menu">
+                <img src="https://poljoprom.com/wp-content/uploads/2021/02/domaca-rakija-sljiva1l-brdovaca-crnogorski-proizvod-kupuj-domace-poljoprom.jpg" alt="meat">
+                <div class="menu_content">
+                  <h4>Ракија<span>$0</span></h4>
+                </div>
+              </div> 
+            </div>
+          </div>
+        </div>
+
+				</div>
+				<a href="#" class=" menu_btn btn btn-danger">view more</a>
+			</div>
+		</div>
+	</section>
