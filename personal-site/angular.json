@@ -26,9 +26,17 @@
               "src/_redirects"
             ],
             "styles": [
-              "src/styles.css"
+              "src/assets/css/font-awesome/css/all.min.css",
+              "src/assets/css/mdb.min.css",
+              "src/assets/css/aos.css",
+              "src/assets/css/main.css",              
+              "src/styles.css"              
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/scripts/aos.js",
+              "src/assets/scripts/main.js",
+              "src/assets/scripts/mdb.min.js"
+            ]
           },
           "configurations": {
             "production": {
