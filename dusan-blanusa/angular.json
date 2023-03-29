@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "personal-site": {
+    "dusan-blanusa": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/personal-site",
+            "outputPath": "dist/dusan-blanusa",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -69,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "personal-site:build:production"
+              "browserTarget": "dusan-blanusa:build:production"
             },
             "development": {
-              "browserTarget": "personal-site:build:development"
+              "browserTarget": "dusan-blanusa:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -80,7 +80,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "personal-site:build"
+            "browserTarget": "dusan-blanusa:build"
           }
         },
         "test": {
