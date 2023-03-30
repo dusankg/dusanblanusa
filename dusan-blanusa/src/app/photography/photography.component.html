@@ -1,0 +1,62 @@
+<head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<br><br>
+<h1 style="text-align: center;">Photography</h1>
+<p>
+    Photography to me is a means of capturing moments and memories that are too precious to forget. It's been a passion of mine since high school, when I first started experimenting with different subjects and techniques. Whether I'm shooting landscapes, portraits, or weddings, photography allows me to express my creativity and tell stories through images. Each photograph is a unique snapshot of a moment in time that I can look back on and relive.
+</p>
+<br>
+<h2 style="text-align: center;">Some of my latest photos</h2>
+
+<br>
+<div class="container" >
+	<div class="row">
+		<div class="row  fade-in" [hidden]="!hiddenBigImage">
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb" *ngFor="let image of nizSlika">
+                <a class="thumbnail" data-image-id="" data-toggle="modal" data-title=""
+                   data-target="#image-gallery"
+                   (click)="showImage(image)"
+                   style="cursor: pointer;"
+                   >
+                    <img class="img-thumbnail"
+                         src="{{image}}"
+                         alt="Another alt text"
+                         >
+            </a>
+            </div>
+
+
+        </div>
+
+
+        <div [hidden]="hiddenBigImage" class="fade-in">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="image-gallery-title"></h4>
+                        <button type="button"  (click)="closeBigImage()" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <img id="image-gallery-image" class="img-responsive col-md-12" src="{{slikaZaPrikaz}}">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary float-left" id="show-previous-image" (click)="previousImage()"><i class="fa fa-arrow-left"></i>
+                        </button>
+
+                        <button type="button" id="show-next-image" class="btn btn-secondary float-right" (click)="nextImage()"><i class="fa fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</div>
+</div>
+<br>
+<a class="nav-link" href="" title="Contact" style="color: rgb(0, 38, 255); text-align: center"><span class="menu-title">Back to main page</span></a>
