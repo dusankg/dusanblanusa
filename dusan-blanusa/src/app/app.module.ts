@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { CoffeeMenuComponent } from './coffee-menu/coffee-menu.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { PhotographyComponent } from './photography/photography.component';
+import { ProjectsComponent } from './projects/projects.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { PhotographyComponent } from './photography/photography.component';
     CoffeeMenuComponent,
     MainPageComponent,
     PhotographyComponent,
+    ProjectsComponent,
   ],
   imports: [
     BrowserModule,
