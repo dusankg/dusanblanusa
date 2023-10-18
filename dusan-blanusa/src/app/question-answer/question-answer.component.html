@@ -1,0 +1,13 @@
+<div>
+    <h1>Question Answer App</h1>
+  
+    <div>
+      <label for="question">Enter your question:</label>
+      <input type="text" id="question" [(ngModel)]="question">
+      <button (click)="getAnswer()">Submit</button>
+    </div>
+  
+    <div *ngIf="response">
+      <p>Response: {{ response }}</p>
+    </div>
+  </div>
