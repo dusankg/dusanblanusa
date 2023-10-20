@@ -22,7 +22,7 @@ export class QuestionAnswerComponent {
     const url = 'https://askdusan-fzvrxng5.b4a.run/ask'; // Replace with your API endpoint
     const params = new HttpParams().set('question', this.question);
 
-    this.http.post(url, { params }).subscribe((data: any) => {
+    this.http.get(url, { params }).subscribe((data: any) => {
       this.response = data.answer;
     });
   }
