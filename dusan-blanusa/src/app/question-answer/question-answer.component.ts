@@ -12,6 +12,7 @@ import {Injectable} from '@angular/core';
 export class QuestionAnswerComponent {
   question: string = '';
   response: string = '';
+  
 
   constructor(private http: HttpClient) {
     this.question = 'Who are you?';
@@ -19,7 +20,8 @@ export class QuestionAnswerComponent {
   }
 
   getAnswer() {
-    const url = 'https://askdusan-fzvrxng5.b4a.run/ask'; // Replace with your API endpoint
+    this.response = 'Thinking ...'
+    const url = 'https://askdusan-fzvrxng5.b4a.run/ask';
     const params = new HttpParams().set('question', this.question);
 
     this.http.get(url, { params }).subscribe((data: any) => {
