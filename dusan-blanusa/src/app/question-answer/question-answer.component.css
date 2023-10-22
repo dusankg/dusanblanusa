@@ -36,6 +36,12 @@
     border-radius: 5px;
     cursor: pointer;
   }
+
+  .submit-button:disabled {
+    background-color: #999; /* Change the background color when disabled */
+    color: #ccc; /* Change the text color when disabled */
+    cursor: not-allowed; /* Change the cursor when disabled to indicate it's not clickable */
+}
   
   .response-container {
     margin: 20px;
