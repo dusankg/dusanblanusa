@@ -19,6 +19,15 @@ export class QuestionAnswerComponent {
     this.question = 'Who are you?';
     this.response = '';
     this.button_disabled = false;
+    this.wakeUpBackend()
+
+  }
+
+  wakeUpBackend(){
+    const url = 'https://askdusan-fzvrxng5.b4a.run';    
+    this.http.get(url).subscribe((data: any) => {
+      console.log(data.answer)
+    });
   }
 
   getAnswer() {
