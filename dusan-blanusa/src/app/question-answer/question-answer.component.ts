@@ -16,7 +16,7 @@ export class QuestionAnswerComponent {
   button_disabled: boolean = false;
 
   constructor(private http: HttpClient) {
-    this.question = 'Who are you?';
+    this.question = '';
     this.response = '';
     this.button_disabled = false;
     this.wakeUpBackend()
