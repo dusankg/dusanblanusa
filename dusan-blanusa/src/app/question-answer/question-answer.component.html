@@ -1,11 +1,23 @@
 <div class="question-answer-container">
   <h1>Try my CV chatbot</h1>
 
-  <div class="input-container">
-    <label for="question">I'm Dušans virtual version. <br>He told me that I can represent him. Ask me anything related to my CV:</label>
-    <input type="text" id="question" [(ngModel)]="question" class="question-input" placeholder="Who are you?" >
-    <button (click)="getAnswer()" class="submit-button" [disabled]="button_disabled">Submit</button>
-  </div>
+  <form class="input-container" (ngSubmit)="getAnswer()">
+    <label for="question">
+      I'm Dušan's virtual version. <br>
+      He told me that I can represent him. Ask me anything related to my CV:
+    </label>
+    <input
+      type="text"
+      id="question"
+      [(ngModel)]="question"
+      name="question"
+      class="question-input"
+      placeholder="Who are you?"
+      [disabled]="button_disabled"
+    >
+    <!-- Hidden button to allow Enter key submission -->
+    <button type="submit" class="submit-button" [disabled]="button_disabled" hidden>Submit</button>
+  </form>
 
   <div *ngIf="response" class="response-container">
     <p class="response-text">{{ response }}</p>
