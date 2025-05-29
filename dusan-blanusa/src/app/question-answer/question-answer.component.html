@@ -9,14 +9,13 @@
     <input
       type="text"
       id="question"
-      [(ngModel)]="question"
       name="question"
+      [(ngModel)]="question"
       class="question-input"
       placeholder="Who are you?"
       [disabled]="button_disabled"
     >
-    <!-- Hidden button to allow Enter key submission -->
-    <button type="submit" class="submit-button" [disabled]="button_disabled" hidden>Submit</button>
+    <button type="submit" class="submit-button" [disabled]="button_disabled">Send</button>
   </form>
 
   <div *ngIf="response" class="response-container">
