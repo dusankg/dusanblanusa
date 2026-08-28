@@ -69,10 +69,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "dusan-blanusa:build:production"
+              "buildTarget": "dusan-blanusa:build:production"
             },
             "development": {
-              "browserTarget": "dusan-blanusa:build:development"
+              "buildTarget": "dusan-blanusa:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -80,7 +80,7 @@
         "extract-i18n": {
           "builder": "@angular/build:extract-i18n",
           "options": {
-            "browserTarget": "dusan-blanusa:build"
+            "buildTarget": "dusan-blanusa:build"
           }
         },
         "test": {
