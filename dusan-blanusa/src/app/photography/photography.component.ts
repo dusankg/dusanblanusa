@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-photography',
+  standalone: false,
   templateUrl: './photography.component.html',
   styleUrls: ['./photography.component.css']
 })

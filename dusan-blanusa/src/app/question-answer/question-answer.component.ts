@@ -5,6 +5,7 @@ import { FactoryTarget } from '@angular/compiler';
 
 @Component({
   selector: 'app-question-answer',
+  standalone: false,
   templateUrl: './question-answer.component.html',
   styleUrls: ['./question-answer.component.css']
 })
