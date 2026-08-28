@@ -1,0 +1,49 @@
+<section #hero class="hero" id="top" aria-labelledby="hero-title">
+  <div #grid class="technical-grid" aria-hidden="true"></div>
+  <div class="hero-inner container-shell">
+    <div class="hero-copy">
+      <p class="eyebrow">AI Technology Lead <span aria-hidden="true">·</span> Software Engineer</p>
+      <h1 id="hero-title">DUŠAN<br>BLANUŠA</h1>
+      <p class="statement">I build AI systems that work beyond the demo.</p>
+      <p class="supporting-copy">
+        Technology Lead with seven years of experience designing production-grade LLM applications,
+        multi-agent platforms, RAG systems, automation tools, and scalable machine learning infrastructure.
+      </p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="#selected-work">View selected work</a>
+        <a class="button button-secondary" href="assets/CV Dusan Blanusa.pdf" download>Download CV</a>
+      </div>
+    </div>
+
+    <div
+      #portrait
+      class="portrait"
+      role="img"
+      aria-label="Interactive portrait of Dušan Blanuša transitioning from a digital AI representation to his real portrait."
+    >
+      <img
+        class="portrait-layer portrait-real"
+        [src]="realPortrait"
+        alt=""
+        width="1254"
+        height="1254"
+        loading="eager"
+        aria-hidden="true"
+        (load)="onPortraitLoad()"
+      >
+      <img
+        class="portrait-layer portrait-ai"
+        [src]="aiPortrait"
+        alt=""
+        width="1254"
+        height="1254"
+        loading="eager"
+        fetchpriority="high"
+        aria-hidden="true"
+        (load)="onPortraitLoad()"
+      >
+      <span class="portrait-hint" aria-hidden="true">Hover to reveal</span>
+    </div>
+  </div>
+  <span class="scroll-label" aria-hidden="true">Scroll</span>
+</section>

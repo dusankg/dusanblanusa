@@ -1,0 +1,18 @@
+<section class="expertise" id="expertise" aria-labelledby="expertise-title">
+  <div class="container-shell">
+    <div class="expertise-heading" appRevealOnScroll>
+      <p class="section-kicker">Expertise</p>
+      <h2 class="section-title" id="expertise-title">Systems designed for the real world.</h2>
+    </div>
+
+    <div class="expertise-list">
+      @for (item of items; track item.number) {
+        <article appRevealOnScroll>
+          <span class="number">{{ item.number }}</span>
+          <h3>{{ item.name }}</h3>
+          <p>{{ item.description }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>

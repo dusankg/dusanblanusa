@@ -1,0 +1,20 @@
+<section class="selected-work" id="selected-work" aria-labelledby="work-title">
+  <div class="container-shell">
+    <header class="work-heading" appRevealOnScroll>
+      <p class="section-kicker">Selected work</p>
+      <h2 class="section-title" id="work-title">Applied intelligence.<br>Measurable outcomes.</h2>
+      <p>A selection of complex AI and data platforms taken from architecture to working systems.</p>
+    </header>
+
+    <div class="project-stack">
+      @for (project of projects; track project.number; let index = $index) {
+        <app-project-card
+          [project]="project"
+          [index]="index"
+          [style.--stack-offset]="(index * 18) + 'px'"
+          [style.z-index]="index + 1"
+        ></app-project-card>
+      }
+    </div>
+  </div>
+</section>

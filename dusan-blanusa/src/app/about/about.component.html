@@ -1,0 +1,31 @@
+<section class="about" id="about" aria-labelledby="about-title">
+  <div class="container-shell">
+    <div class="about-grid">
+      <div appRevealOnScroll>
+        <p class="section-kicker">About me</p>
+        <h2 class="section-title" id="about-title">Engineering clarity into complex AI.</h2>
+      </div>
+      <div class="about-copy" appRevealOnScroll>
+        <p>
+          I turn complex AI ideas into systems that teams can use in production. My work spans LLM
+          applications, multi-agent orchestration, RAG, browser automation, computer vision,
+          distributed machine learning, and cloud data platforms.
+        </p>
+        <p>
+          I combine hands-on engineering with architecture, client communication, and team leadership,
+          taking projects from early discovery and proof of concept through implementation and delivery.
+          I care most about reliability, clear system design, and meaningful business impact.
+        </p>
+      </div>
+    </div>
+
+    <dl class="metrics" appRevealOnScroll>
+      @for (metric of metrics; track metric.label) {
+        <div>
+          <dt>{{ metric.value }}</dt>
+          <dd>{{ metric.label }}</dd>
+        </div>
+      }
+    </dl>
+  </div>
+</section>

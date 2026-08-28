@@ -1,0 +1,39 @@
+<section class="experience" id="experience" aria-labelledby="experience-title">
+  <div class="container-shell">
+    <header appRevealOnScroll>
+      <p class="section-kicker">Experience</p>
+      <h2 class="section-title" id="experience-title">Technical depth.<br>Delivery leadership.</h2>
+    </header>
+
+    <div class="timeline">
+      @for (item of experience; track item.period) {
+        <article appRevealOnScroll>
+          <time>{{ item.period }}</time>
+          <div>
+            <h3>{{ item.role }}</h3>
+            <p class="company">{{ item.company }}</p>
+          </div>
+          <p class="description">{{ item.description }}</p>
+        </article>
+      }
+    </div>
+
+    <div class="credentials" appRevealOnScroll>
+      <div>
+        <p class="label">Education</p>
+        <h3>Bachelor of Electrical and Computer Engineering</h3>
+        <p>Faculty of Technical Sciences, University of Novi Sad</p>
+        <h3>Pursuing a master's degree in Electrical and Computer Engineering</h3>
+        <p>Faculty of Technical Sciences, University of Novi Sad</p>
+      </div>
+      <div>
+        <p class="label">Training</p>
+        <ul>
+          @for (item of training; track item) {
+            <li>{{ item }}</li>
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

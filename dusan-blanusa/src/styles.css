@@ -1,1 +1,125 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --paper: #f4f5f0;
+  --ink: #111512;
+  --forest: #173b2c;
+  --forest-deep: #102a20;
+  --muted: #6b716d;
+  --sage: #dde4dc;
+  --line: rgba(17, 21, 18, 0.1);
+  --container: 1400px;
+  --page-gutter: clamp(24px, 5vw, 80px);
+  --header-height: 76px;
+  color-scheme: light;
+  font-family: "Manrope", "Segoe UI", sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-height) + 20px);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  color: var(--ink);
+  background: var(--paper);
+  overflow-x: hidden;
+  overflow-x: clip;
+}
+
+body,
+button,
+a {
+  font-family: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  color: inherit;
+}
+
+::selection {
+  color: var(--paper);
+  background: var(--forest);
+}
+
+:focus-visible {
+  outline: 2px solid #2d694e;
+  outline-offset: 4px;
+}
+
+.container-shell {
+  width: min(100%, var(--container));
+  margin-inline: auto;
+  padding-inline: var(--page-gutter);
+}
+
+.section-kicker {
+  margin: 0 0 22px;
+  color: var(--forest);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.section-title {
+  margin: 0;
+  font-size: clamp(2.8rem, 6vw, 5.8rem);
+  font-weight: 500;
+  letter-spacing: -0.055em;
+  line-height: 0.98;
+}
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 720ms cubic-bezier(0.25, 0.1, 0.25, 1),
+    transform 720ms cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal-on-scroll {
+    opacity: 1;
+    transform: none;
+  }
+}

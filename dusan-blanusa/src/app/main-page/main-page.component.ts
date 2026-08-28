@@ -1,12 +1,9 @@
-import { Component } from '@angular/core';
-import { ProjectsComponent } from '../projects/projects.component';
-import { QuestionAnswerComponent } from '../question-answer/question-answer.component';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 @Component({
   selector: 'app-main-page',
   standalone: false,
   templateUrl: './main-page.component.html',
-  styleUrls: ['./main-page.component.css']
+  styleUrls: ['./main-page.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class MainPageComponent {
-
-}
+export class MainPageComponent {}
