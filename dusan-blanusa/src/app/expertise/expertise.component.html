@@ -6,11 +6,16 @@
     </div>
 
     <div class="expertise-list">
-      @for (item of items; track item.number) {
-        <article appRevealOnScroll>
-          <span class="number">{{ item.number }}</span>
-          <h3>{{ item.name }}</h3>
-          <p>{{ item.description }}</p>
+      @for (item of items; track item.number; let index = $index) {
+        <article
+          [style.--expertise-offset]="index * 12 + 'px'"
+          [style.z-index]="index + 1"
+        >
+          <div class="expertise-content" appRevealOnScroll>
+            <span class="number">{{ item.number }}</span>
+            <h3>{{ item.name }}</h3>
+            <p>{{ item.description }}</p>
+          </div>
         </article>
       }
     </div>
