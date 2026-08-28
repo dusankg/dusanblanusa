@@ -5,6 +5,18 @@
   <title>Dušan Blanuša | AI Technology Lead &amp; Engineer</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (() => {
+      try {
+        const storedTheme = localStorage.getItem('dusan-portfolio-theme');
+        const theme = storedTheme === 'dark' || storedTheme === 'light'
+          ? storedTheme
+          : (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+      } catch { /* Use the light theme when preferences are unavailable. */ }
+    })();
+  </script>
   <meta name="description" content="Dušan Blanuša designs and delivers production-grade AI systems, multi-agent platforms, RAG pipelines, automation, and scalable machine-learning infrastructure.">
   <meta name="theme-color" content="#f4f5f0">
   <link rel="preconnect" href="https://fonts.googleapis.com">

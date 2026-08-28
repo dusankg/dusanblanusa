@@ -1,6 +1,6 @@
 .experience {
   padding: clamp(100px, 14vw, 200px) 0;
-  background: #e8ece5;
+  background: var(--surface-muted);
 }
 
 header {
@@ -48,7 +48,7 @@ h3 {
 .description {
   max-width: 600px;
   margin: 0;
-  color: #4c534e;
+  color: var(--body-copy);
   font-size: 0.94rem;
   line-height: 1.7;
 }

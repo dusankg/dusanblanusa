@@ -9,6 +9,7 @@ import {
   PLATFORM_ID,
 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+import { ThemeService } from '../shared/theme.service';
 
 interface NavItem {
   readonly label: string;
@@ -34,6 +35,7 @@ export class HeaderComponent implements AfterViewInit, OnDestroy {
   private scrollHandler?: () => void;
 
   constructor(
+    readonly themeService: ThemeService,
     private readonly host: ElementRef<HTMLElement>,
     private readonly zone: NgZone,
     @Inject(PLATFORM_ID) private readonly platformId: object,
@@ -59,6 +61,10 @@ export class HeaderComponent implements AfterViewInit, OnDestroy {
 
   closeMenu(): void {
     this.menuOpen = false;
+  }
+
+  toggleTheme(): void {
+    this.themeService.toggle();
   }
 
   ngOnDestroy(): void {

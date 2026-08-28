@@ -7,7 +7,7 @@
 }
 
 :host.is-scrolled {
-  background: rgba(244, 245, 240, 0.92);
+  background: var(--header-bg);
   border-bottom: 1px solid var(--line);
   backdrop-filter: blur(12px);
 }
@@ -26,7 +26,7 @@
 .identity {
   position: relative;
   z-index: 2;
-  color: var(--ink);
+  color: var(--page-text);
   font-size: 1.15rem;
   font-weight: 700;
   letter-spacing: -0.04em;
@@ -34,7 +34,8 @@
 }
 
 .nav-wrap,
-nav {
+nav,
+.header-actions {
   display: flex;
   align-items: center;
 }
@@ -48,7 +49,8 @@ nav {
 }
 
 nav a,
-.cv-link {
+.cv-link,
+.theme-toggle {
   font-size: 0.78rem;
   font-weight: 600;
   text-decoration: none;
@@ -56,7 +58,7 @@ nav a,
 
 nav a {
   position: relative;
-  color: rgba(17, 21, 18, 0.72);
+  color: var(--nav-text);
 }
 
 nav a::after {
@@ -80,9 +82,50 @@ nav a:focus-visible::after {
 
 .cv-link {
   padding: 10px 17px;
-  border: 1px solid rgba(17, 21, 18, 0.2);
+  border: 1px solid var(--line-strong);
   border-radius: 999px;
   transition: color 220ms ease, background-color 220ms ease, border-color 220ms ease;
+}
+
+.header-actions {
+  gap: 10px;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 39px;
+  padding: 8px 12px;
+  color: var(--nav-text);
+  background: transparent;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: color 220ms ease, background-color 220ms ease, border-color 220ms ease;
+}
+
+.theme-toggle:hover {
+  color: var(--page-bg);
+  background: var(--page-text);
+  border-color: var(--page-text);
+}
+
+.theme-icon {
+  position: relative;
+  display: block;
+  width: 12px;
+  height: 12px;
+  overflow: hidden;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+}
+
+.theme-icon::after {
+  position: absolute;
+  inset: -2px -2px -2px 50%;
+  background: currentColor;
+  content: '';
 }
 
 .cv-link:hover {
@@ -123,7 +166,7 @@ nav a:focus-visible::after {
     align-items: flex-start;
     justify-content: center;
     padding: 96px var(--page-gutter) 48px;
-    background: var(--paper);
+    background: var(--page-bg);
     opacity: 0;
     pointer-events: none;
     transform: translateY(-12px);
@@ -146,5 +189,10 @@ nav a:focus-visible::after {
     font-size: clamp(1.7rem, 8vw, 3.2rem);
     font-weight: 500;
     letter-spacing: -0.04em;
+  }
+
+  .header-actions {
+    align-items: center;
+    flex-wrap: wrap;
   }
 }

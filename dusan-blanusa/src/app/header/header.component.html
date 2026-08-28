@@ -19,9 +19,21 @@
           <a [href]="item.href" (click)="closeMenu()">{{ item.label }}</a>
         }
       </nav>
-      <a class="cv-link" href="assets/CV Dusan Blanusa.pdf" download (click)="closeMenu()">
-        Download CV
-      </a>
+      <div class="header-actions">
+        <button
+          class="theme-toggle"
+          type="button"
+          [attr.aria-label]="themeService.isDark() ? 'Switch to light theme' : 'Switch to dark theme'"
+          [attr.aria-pressed]="themeService.isDark()"
+          (click)="toggleTheme()"
+        >
+          <span class="theme-icon" aria-hidden="true"></span>
+          <span>{{ themeService.isDark() ? 'Light' : 'Dark' }}</span>
+        </button>
+        <a class="cv-link" href="assets/CV Dusan Blanusa.pdf" download (click)="closeMenu()">
+          Download CV
+        </a>
+      </div>
     </div>
   </div>
 </header>

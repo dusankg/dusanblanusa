@@ -7,14 +7,14 @@
   min-height: 100vh;
   min-height: 100svh;
   overflow: hidden;
-  background: var(--paper);
+  background: var(--page-bg);
 }
 
 .technical-grid {
   position: absolute;
   inset: -20px;
-  background-image: linear-gradient(rgba(23, 59, 44, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(23, 59, 44, 0.05) 1px, transparent 1px);
+  background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
   background-size: 56px 56px;
   pointer-events: none;
 }
@@ -22,7 +22,7 @@
 .technical-grid::after {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 72% 42%, transparent 0, rgba(244, 245, 240, 0.34) 45%, var(--paper) 86%);
+  background: radial-gradient(circle at 72% 42%, transparent 0, var(--hero-haze) 45%, var(--page-bg) 86%);
   content: '';
 }
 
@@ -110,11 +110,11 @@ h1 {
 }
 
 .button-secondary {
-  border-color: rgba(17, 21, 18, 0.2);
+  border-color: var(--line-strong);
 }
 
 .button-secondary:hover {
-  border-color: var(--ink);
+  border-color: var(--page-text);
 }
 
 .portrait {
@@ -183,7 +183,7 @@ h1 {
   z-index: 3;
   top: 48%;
   right: -2px;
-  color: rgba(17, 21, 18, 0.48);
+  color: var(--hint-text);
   font-size: 0.66rem;
   font-weight: 600;
   letter-spacing: 0.15em;
@@ -214,7 +214,7 @@ h1 {
 .scroll-label::after {
   width: 44px;
   height: 1px;
-  background: rgba(17, 21, 18, 0.24);
+  background: var(--quiet-line);
   content: '';
 }
 

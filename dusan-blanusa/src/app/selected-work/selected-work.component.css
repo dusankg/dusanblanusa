@@ -1,6 +1,6 @@
 .selected-work {
   padding: clamp(100px, 14vw, 210px) 0 clamp(90px, 10vw, 150px);
-  background: var(--paper);
+  background: var(--page-bg);
 }
 
 .work-heading {
