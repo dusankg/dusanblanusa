@@ -1,0 +1,23 @@
+<section class="expertise" id="expertise" aria-labelledby="expertise-title">
+  <div class="container-shell">
+    <div class="expertise-heading" appRevealOnScroll>
+      <p class="section-kicker">Expertise</p>
+      <h2 class="section-title" id="expertise-title">Systems designed for the real world.</h2>
+    </div>
+
+    <div class="expertise-list">
+      @for (item of items; track item.number; let index = $index) {
+        <article
+          [style.--expertise-offset]="index * 12 + 'px'"
+          [style.z-index]="index + 1"
+        >
+          <div class="expertise-content" appRevealOnScroll>
+            <span class="number">{{ item.number }}</span>
+            <h3>{{ item.name }}</h3>
+            <p>{{ item.description }}</p>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>

@@ -1,1 +1,173 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --paper: #f4f5f0;
+  --ink: #111512;
+  --forest: #173b2c;
+  --forest-deep: #102a20;
+  --muted: #6b716d;
+  --sage: #dde4dc;
+  --line: rgba(17, 21, 18, 0.1);
+  --line-strong: rgba(17, 21, 18, 0.2);
+  --page-bg: #f4f5f0;
+  --page-text: #111512;
+  --surface-muted: #e8ece5;
+  --surface-card: #eef0eb;
+  --copy: #343a36;
+  --body-copy: #4c534e;
+  --header-bg: rgba(244, 245, 240, 0.92);
+  --nav-text: rgba(17, 21, 18, 0.72);
+  --hint-text: rgba(17, 21, 18, 0.48);
+  --quiet-line: rgba(17, 21, 18, 0.24);
+  --grid-line: rgba(23, 59, 44, 0.05);
+  --hero-haze: rgba(244, 245, 240, 0.34);
+  --card-border: rgba(17, 21, 18, 0.13);
+  --card-shadow: rgba(16, 42, 32, 0.15);
+  --focus: #2d694e;
+  --container: 1400px;
+  --page-gutter: clamp(24px, 5vw, 80px);
+  --header-height: 76px;
+  color-scheme: light;
+  font-family: "Manrope", "Segoe UI", sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+html[data-theme='dark'] {
+  --forest: #4f8065;
+  --forest-deep: #081c15;
+  --muted: #a7aea9;
+  --sage: #26382f;
+  --line: rgba(244, 245, 240, 0.12);
+  --line-strong: rgba(244, 245, 240, 0.24);
+  --page-bg: #111512;
+  --page-text: #f4f5f0;
+  --surface-muted: #18221d;
+  --surface-card: #1b2520;
+  --copy: #d2d7d3;
+  --body-copy: #c0c7c2;
+  --header-bg: rgba(17, 21, 18, 0.9);
+  --nav-text: rgba(244, 245, 240, 0.74);
+  --hint-text: rgba(244, 245, 240, 0.52);
+  --quiet-line: rgba(244, 245, 240, 0.26);
+  --grid-line: rgba(111, 160, 131, 0.08);
+  --hero-haze: rgba(17, 21, 18, 0.28);
+  --card-border: rgba(244, 245, 240, 0.13);
+  --card-shadow: rgba(0, 0, 0, 0.42);
+  --focus: #9fc1ab;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-height) + 20px);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  color: var(--page-text);
+  background: var(--page-bg);
+  overflow-x: hidden;
+  overflow-x: clip;
+  transition: color 320ms ease, background-color 320ms ease;
+}
+
+section,
+footer,
+.project-card,
+.nav-wrap {
+  transition: color 320ms ease, background-color 320ms ease, border-color 320ms ease;
+}
+
+body,
+button,
+a {
+  font-family: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  color: inherit;
+}
+
+::selection {
+  color: var(--paper);
+  background: var(--forest);
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 4px;
+}
+
+.container-shell {
+  width: min(100%, var(--container));
+  margin-inline: auto;
+  padding-inline: var(--page-gutter);
+}
+
+.section-kicker {
+  margin: 0 0 22px;
+  color: var(--forest);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.section-title {
+  margin: 0;
+  font-size: clamp(2.8rem, 6vw, 5.8rem);
+  font-weight: 500;
+  letter-spacing: -0.055em;
+  line-height: 0.98;
+}
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 720ms cubic-bezier(0.25, 0.1, 0.25, 1),
+    transform 720ms cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal-on-scroll {
+    opacity: 1;
+    transform: none;
+  }
+}

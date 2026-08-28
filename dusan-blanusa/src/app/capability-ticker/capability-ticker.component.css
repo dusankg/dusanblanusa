@@ -1,0 +1,62 @@
+:host {
+  display: block;
+  overflow: hidden;
+}
+
+.ticker {
+  overflow: hidden;
+  padding: 22px 0;
+  color: var(--paper);
+  background: var(--forest-deep);
+  border-block: 1px solid rgba(244, 245, 240, 0.12);
+}
+
+.ticker-track,
+.ticker-set {
+  display: flex;
+  align-items: center;
+  width: max-content;
+}
+
+.ticker-track {
+  animation: ticker 48s linear infinite;
+}
+
+.ticker-set {
+  flex-shrink: 0;
+}
+
+span {
+  padding-inline: 28px;
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+i {
+  display: block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(244, 245, 240, 0.42);
+}
+
+@keyframes ticker {
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker {
+    overflow-x: auto;
+  }
+
+  .ticker-track {
+    animation: none;
+  }
+
+  .ticker-set[aria-hidden='true'] {
+    display: none;
+  }
+}

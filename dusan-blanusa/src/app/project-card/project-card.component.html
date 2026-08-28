@@ -1,0 +1,55 @@
+<article class="project-card" [style.--card-number]="index + 1">
+  <div class="project-visual" aria-hidden="true">
+    <span class="visual-number">{{ project.number }}</span>
+    <div class="visual-grid"></div>
+    <img src="assets/detective cat.png" alt="" width="1024" height="1024" loading="lazy">
+    <p>{{ project.category }}</p>
+  </div>
+
+  <div class="project-content">
+    <div class="project-meta">
+      <span>Project {{ project.number }}</span>
+      <span>{{ project.category }}</span>
+    </div>
+    <h3>{{ project.name }}</h3>
+    <p class="headline">{{ project.headline }}</p>
+    <p class="overview">{{ project.overview }}</p>
+
+    <button
+      type="button"
+      class="details-toggle"
+      [attr.aria-expanded]="expanded"
+      [attr.aria-controls]="panelId"
+      (click)="toggleDetails()"
+    >
+      <span>{{ expanded ? 'Close overview' : 'Project overview' }}</span>
+      <i aria-hidden="true"></i>
+    </button>
+
+    <div class="details" [id]="panelId" [class.is-expanded]="expanded" [attr.aria-hidden]="!expanded">
+      <div class="details-inner">
+        <dl>
+          <div>
+            <dt>Role</dt>
+            <dd>{{ project.role }}</dd>
+          </div>
+          <div>
+            <dt>Technology</dt>
+            <dd>{{ project.technology.join(' · ') }}</dd>
+          </div>
+          <div>
+            <dt>Outcome</dt>
+            <dd>{{ project.outcome }}</dd>
+          </div>
+        </dl>
+        @if (project.outcomePoints?.length) {
+          <ul aria-label="Project outcomes">
+            @for (point of project.outcomePoints; track point) {
+              <li>{{ point }}</li>
+            }
+          </ul>
+        }
+      </div>
+    </div>
+  </div>
+</article>

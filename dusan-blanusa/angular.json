@@ -27,17 +27,9 @@
               "src/_redirects"
             ],
             "styles": [
-              "src/assets/css/font-awesome/css/all.min.css",
-              "src/assets/css/mdb.min.css",
-              "src/assets/css/aos.css",
-              "src/assets/css/main.css",              
-              "src/styles.css"              
+              "src/styles.css"
             ],
-            "scripts": [
-              "src/assets/scripts/aos.js",
-              "src/assets/scripts/main.js",
-              "src/assets/scripts/mdb.min.js"
-            ],
+            "scripts": [],
             "browser": "src/main.ts"
           },
           "configurations": {
@@ -50,8 +42,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "6kb",
+                  "maximumError": "8kb"
                 }
               ],
               "outputHashing": "all"

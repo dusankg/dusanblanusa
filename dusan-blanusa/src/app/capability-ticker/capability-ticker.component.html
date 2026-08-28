@@ -1,0 +1,12 @@
+<section class="ticker" aria-label="Core capabilities">
+  <div class="ticker-track">
+    @for (copy of [0, 1]; track copy) {
+      <div class="ticker-set" [attr.aria-hidden]="copy === 1">
+        @for (capability of capabilities; track capability) {
+          <span>{{ capability }}</span>
+          <i aria-hidden="true"></i>
+        }
+      </div>
+    }
+  </div>
+</section>
