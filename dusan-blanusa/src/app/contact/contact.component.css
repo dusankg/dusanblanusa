@@ -64,6 +64,35 @@ h2 {
   background: var(--paper);
 }
 
+.contact-actions {
+  display: grid;
+  gap: 16px;
+}
+
+.ask-ai {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  min-height: 44px;
+  padding: 0;
+  color: rgba(244, 245, 240, 0.72);
+  text-align: left;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.ask-ai span {
+  font-weight: 800;
+  letter-spacing: -0.05em;
+}
+
+.ask-ai:hover {
+  color: var(--paper);
+}
+
 nav {
   display: flex;
   flex-wrap: wrap;

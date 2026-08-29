@@ -11,7 +11,18 @@
       </p>
       <div class="hero-actions">
         <a class="button button-primary" href="#selected-work">View selected work</a>
-        <a class="button button-secondary" href="assets/CV Dusan Blanusa.pdf" download>Download CV</a>
+        <button
+          class="button button-secondary"
+          type="button"
+          aria-controls="chatbot-dialog"
+          [attr.aria-expanded]="chatbotStore.isOpen()"
+          (pointerenter)="warmChat()"
+          (pointerdown)="warmChat()"
+          (focus)="warmChat()"
+          (click)="openChat($event)"
+        >
+          Ask Du&#353;an&rsquo;s AI
+        </button>
       </div>
     </div>
 

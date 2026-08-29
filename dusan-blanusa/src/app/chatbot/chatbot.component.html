@@ -1,0 +1,135 @@
+<button
+  class="chat-launcher"
+  type="button"
+  aria-label="Open Ask my AI assistant"
+  aria-controls="chatbot-dialog"
+  [attr.aria-expanded]="store.isOpen()"
+  [attr.inert]="showLauncher() ? null : ''"
+  [class.is-visible]="showLauncher()"
+  (pointerenter)="warmChat()"
+  (pointerdown)="warmChat()"
+  (focus)="warmChat()"
+  (click)="openFromLauncher($event)"
+>
+  <span class="launcher-monogram" aria-hidden="true">DB.</span>
+  <span>Ask my AI</span>
+</button>
+
+<div
+  class="chat-backdrop"
+  aria-hidden="true"
+  [class.is-open]="store.isOpen()"
+  (click)="close()"
+></div>
+
+<aside
+  #dialog
+  class="chat-drawer"
+  id="chatbot-dialog"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="chatbot-title"
+  aria-describedby="chatbot-description"
+  tabindex="-1"
+  [attr.aria-hidden]="!store.isOpen()"
+  [attr.inert]="store.isOpen() ? null : ''"
+  [class.is-open]="store.isOpen()"
+>
+  <header class="chat-header">
+    <span class="chat-monogram" aria-hidden="true">DB.</span>
+    <div class="chat-heading">
+      <h2 id="chatbot-title">Ask Du&#353;an&rsquo;s AI</h2>
+      <p id="chatbot-description">Answers based on my CV, projects, and professional experience.</p>
+    </div>
+    <button class="icon-button close-button" type="button" aria-label="Close AI assistant" (click)="close()">
+      <span aria-hidden="true"></span>
+    </button>
+
+    @if (store.canClear()) {
+      @if (!clearConfirmationVisible) {
+        <button class="clear-button" type="button" (click)="showClearConfirmation()">Clear conversation</button>
+      } @else {
+        <div class="clear-confirmation" role="group" aria-label="Clear this conversation?">
+          <span>Clear this conversation?</span>
+          <button type="button" (click)="clearConversation()">Clear</button>
+          <button type="button" (click)="cancelClear()">Cancel</button>
+        </div>
+      }
+    }
+  </header>
+
+  <div #conversation class="chat-conversation" role="log" aria-live="polite" aria-relevant="additions">
+    @if (store.isEmpty()) {
+      <div class="welcome-state">
+        <p>Ask me about my experience, projects, technical skills, or the AI systems I have built.</p>
+        <div class="suggestions" aria-label="Suggested questions">
+          @for (question of suggestions; track question) {
+            <button type="button" [disabled]="store.isLoading()" (click)="submitSuggestion(question)">
+              {{ question }}
+            </button>
+          }
+        </div>
+      </div>
+    }
+
+    @for (message of store.messages(); track message.id) {
+      <article
+        class="message"
+        [class.message-user]="message.role === 'user'"
+        [class.message-assistant]="message.role === 'assistant'"
+        [class.is-failed]="message.status === 'failed'"
+      >
+        @if (message.role === 'assistant') {
+          <span class="message-label">Du&#353;an AI</span>
+        }
+        <p>{{ message.content }}</p>
+        @if (message.status === 'failed') {
+          <button class="retry-button" type="button" [disabled]="store.isLoading()" (click)="retry(message.id)">
+            Retry
+          </button>
+        }
+      </article>
+    }
+
+    @if (store.isLoading()) {
+      <p class="thinking" role="status">Thinking&hellip;</p>
+    }
+    @if (store.lastError()) {
+      <p class="chat-error" role="status">{{ store.lastError() }}</p>
+    }
+  </div>
+
+  <footer class="chat-composer-wrap">
+    <p class="ai-disclosure">
+      AI-generated answers based on information provided by Du&#353;an. For current availability or important details,
+      contact him directly.
+    </p>
+    <form class="chat-composer" (submit)="submit($event)">
+      <label class="sr-only" for="chatbot-question">Your question</label>
+      <textarea
+        #questionInput
+        id="chatbot-question"
+        name="question"
+        rows="1"
+        maxlength="1000"
+        placeholder="Ask about my experience, projects, or skills&hellip;"
+        [value]="draft"
+        [disabled]="store.isLoading()"
+        (input)="updateDraft($event)"
+        (keydown)="handleTextareaKeydown($event)"
+        (compositionstart)="setCompositionState(true)"
+        (compositionend)="setCompositionState(false)"
+      ></textarea>
+      <button
+        class="send-button"
+        type="submit"
+        [disabled]="store.isLoading() || !draft.trim() || draft.length > 1000"
+      >
+        Send
+      </button>
+      <span class="character-count" [class.is-near-limit]="draft.length >= 900">
+        {{ draft.length }}/1000
+      </span>
+    </form>
+  </footer>
+</aside>
