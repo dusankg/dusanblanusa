@@ -18,14 +18,99 @@
         </p>
       </div>
     </div>
+  </div>
 
-    <dl class="metrics" appRevealOnScroll>
-      @for (metric of metrics; track metric.label) {
-        <div>
-          <dt>{{ metric.value }}</dt>
-          <dd>{{ metric.label }}</dd>
+  <div
+    #focusSection
+    class="focus-scroll"
+    [class.is-fallback]="sequenceFailed"
+    [class.is-reduced-motion]="reducedMotion"
+    aria-label="Professional focus points"
+  >
+    <div class="focus-sticky">
+      <div class="focus-layout container-shell">
+        <div class="hand-stage" (mouseleave)="clearPointerFocus()">
+          <img
+            class="hand-image"
+            [class.is-ready]="sequenceReady"
+            [src]="handFrames[activeFrameIndex]"
+            alt=""
+            aria-hidden="true"
+            (load)="onFrameReady()"
+            (error)="onFrameError()"
+          />
+
+          <div class="focus-label-layer" [class.is-visible]="interactionEnabled">
+            @for (point of focusPoints; track point.finger; let index = $index) {
+              <div
+                class="focus-label"
+                [class.align-start]="point.labelPosition.alignment === 'start'"
+                [class.align-end]="point.labelPosition.alignment === 'end'"
+                [class.is-active]="activeFinger === point.finger"
+                [style.left.%]="point.labelPosition.x"
+                [style.top.%]="point.labelPosition.y"
+                [style.--label-delay]="index * 70 + 'ms'"
+              >
+                <strong>{{ point.value }}</strong>
+                <span>{{ point.description }}</span>
+              </div>
+            }
+          </div>
+
+          <div class="hotspot-layer" [class.is-interactive]="interactionEnabled">
+            @for (point of focusPoints; track point.finger) {
+              <button
+                class="hotspot"
+                type="button"
+                [class.is-active]="activeFinger === point.finger"
+                [style.left.%]="point.hotspotPosition.x"
+                [style.top.%]="point.hotspotPosition.y"
+                [style.width.%]="point.hotspotPosition.width"
+                [style.height.%]="point.hotspotPosition.height"
+                [style.--hotspot-rotation]="point.hotspotPosition.rotation + 'deg'"
+                [attr.aria-label]="'Highlight ' + point.value + ' ' + point.description"
+                [attr.aria-pressed]="activeFinger === point.finger"
+                [attr.aria-disabled]="!interactionEnabled"
+                [attr.tabindex]="interactionEnabled ? null : -1"
+                (mouseenter)="activateFocus(point)"
+                (focus)="activateFocus(point)"
+                (click)="activateFocus(point)"
+              >
+                <span aria-hidden="true"></span>
+              </button>
+            }
+          </div>
         </div>
-      }
-    </dl>
+
+        <div
+          class="mobile-focus-points"
+          [class.is-visible]="interactionEnabled"
+          aria-label="Focus points"
+        >
+          @for (point of focusPoints; track point.finger) {
+            <button
+              type="button"
+              [class.is-active]="activeFinger === point.finger"
+              [attr.aria-pressed]="activeFinger === point.finger"
+              (click)="activateFocus(point)"
+            >
+              <strong>{{ point.value }}</strong>
+              <span>{{ point.description }}</span>
+            </button>
+          }
+        </div>
+      </div>
+    </div>
+
+    <div class="focus-fallback container-shell">
+      <div class="fallback-grid">
+        @for (point of focusPoints; track point.finger) {
+          <div>
+            <p>{{ point.value }}</p>
+            <span>{{ point.description }}</span>
+          </div>
+        }
+      </div>
+    </div>
   </div>
 </section>
