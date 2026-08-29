@@ -187,8 +187,8 @@ export class HeroComponent implements AfterViewInit, OnDestroy {
     }
     const normalizedX = ((event.clientX - this.heroRect.left) / this.heroRect.width - 0.5) * 2;
     const normalizedY = ((event.clientY - this.heroRect.top) / this.heroRect.height - 0.5) * 2;
-    this.gridTargetX = normalizedX * 10;
-    this.gridTargetY = normalizedY * 10;
+    this.gridTargetX = normalizedX * 24;
+    this.gridTargetY = normalizedY * 24;
     this.portraitTargetX = normalizedX * 4;
     this.portraitTargetY = normalizedY * 3;
   }
@@ -198,8 +198,8 @@ export class HeroComponent implements AfterViewInit, OnDestroy {
       this.smoothX += (this.targetX - this.smoothX) * 0.13;
       this.smoothY += (this.targetY - this.smoothY) * 0.13;
       this.smoothRadius += (this.targetRadius - this.smoothRadius) * 0.16;
-      this.gridX += (this.gridTargetX - this.gridX) * 0.05;
-      this.gridY += (this.gridTargetY - this.gridY) * 0.05;
+      this.gridX += (this.gridTargetX - this.gridX) * 0.08;
+      this.gridY += (this.gridTargetY - this.gridY) * 0.08;
       this.portraitX += (this.portraitTargetX - this.portraitX) * 0.06;
       this.portraitY += (this.portraitTargetY - this.portraitY) * 0.06;
       this.updateRevealVariables();

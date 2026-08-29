@@ -36,7 +36,7 @@
   --focus-entry: 0;
   position: relative;
   height: 220dvh;
-  margin-top: clamp(40px, 6vw, 80px);
+  margin-top: clamp(-112px, -7vw, -72px);
   background: var(--page-bg);
 }
 
@@ -62,8 +62,7 @@
   width: min(90vw, 1160px, calc(76dvh * 1.5));
   aspect-ratio: 1.5;
   opacity: calc(0.2 + (var(--focus-entry) * 0.8));
-  transform: translateY(calc((1 - var(--focus-entry)) * 28px));
-  will-change: opacity, transform;
+  will-change: opacity;
 }
 
 .hand-image {
@@ -301,6 +300,7 @@
 @media (max-width: 700px) {
   .focus-scroll {
     height: 210dvh;
+    margin-top: 32px;
   }
 
   .focus-layout {

@@ -12,7 +12,7 @@
 
 .technical-grid {
   position: absolute;
-  inset: -20px;
+  inset: -32px;
   background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),
     linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
   background-size: 56px 56px;
