@@ -97,6 +97,7 @@ h1 {
   letter-spacing: 0.06em;
   text-decoration: none;
   text-transform: uppercase;
+  cursor: pointer;
   transition: color 220ms ease, background-color 220ms ease, border-color 220ms ease;
 }
 
@@ -110,6 +111,8 @@ h1 {
 }
 
 .button-secondary {
+  color: var(--page-text);
+  background: transparent;
   border-color: var(--line-strong);
 }
 

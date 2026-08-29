@@ -1,6 +1,10 @@
+import { Component } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+
+@Component({ selector: 'app-chatbot', template: '', standalone: false })
+class ChatbotStubComponent {}
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -9,7 +13,8 @@ describe('AppComponent', () => {
         RouterTestingModule
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        ChatbotStubComponent,
       ],
     }).compileComponents();
   });

@@ -7,10 +7,25 @@
         If you are building an AI product, automating a complex workflow, or modernizing an existing
         data and machine-learning platform, I would be glad to hear what you are working on.
       </p>
-      <a class="conversation" [href]="mailto">
-        <span>Start a conversation</span>
-        <i aria-hidden="true">↗</i>
-      </a>
+      <div class="contact-actions">
+        <a class="conversation" [href]="mailto">
+          <span>Start a conversation</span>
+          <i aria-hidden="true">↗</i>
+        </a>
+        <button
+          class="ask-ai"
+          type="button"
+          aria-controls="chatbot-dialog"
+          [attr.aria-expanded]="chatbotStore.isOpen()"
+          (pointerenter)="warmChat()"
+          (pointerdown)="warmChat()"
+          (focus)="warmChat()"
+          (click)="openChat($event)"
+        >
+          Have a question first? Ask my AI assistant.
+          <span aria-hidden="true">DB.</span>
+        </button>
+      </div>
     </div>
     <nav aria-label="Contact links">
       <a href="https://www.linkedin.com/in/dusan-blanusa" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>

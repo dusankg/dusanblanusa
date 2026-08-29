@@ -18,6 +18,14 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
+## Chatbot API
+
+The chatbot endpoints are configured in `src/environments/environment.ts` as `chatbotApiUrl`
+and `chatbotWarmupUrl`. The warm-up URL is called on chat intent to wake the free-tier backend.
+It must accept JSON `POST` requests with `question` and `chat_history`, return a JSON object
+containing a non-empty `answer` string, and allow CORS requests from `https://dusanblanusa.com`
+and any local development origin that should be supported.
+
 ## Running end-to-end tests
 
 Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.

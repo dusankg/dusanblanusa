@@ -15,6 +15,8 @@ import { ExperienceComponent } from './experience/experience.component';
 import { ContactComponent } from './contact/contact.component';
 import { FooterComponent } from './footer/footer.component';
 import { RevealOnScrollDirective } from './shared/reveal-on-scroll.directive';
+import { provideHttpClient } from '@angular/common/http';
+import { ChatbotComponent } from './chatbot/chatbot.component';
 
 @NgModule({
   declarations: [
@@ -32,12 +34,13 @@ import { RevealOnScrollDirective } from './shared/reveal-on-scroll.directive';
     ContactComponent,
     FooterComponent,
     RevealOnScrollDirective,
+    ChatbotComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [provideHttpClient()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

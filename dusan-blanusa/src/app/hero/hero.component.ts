@@ -10,6 +10,7 @@ import {
   PLATFORM_ID,
   ViewChild,
 } from '@angular/core';
+import { ChatbotStore } from '../chatbot/chatbot.store';
 
 @Component({
   selector: 'app-hero',
@@ -53,9 +54,18 @@ export class HeroComponent implements AfterViewInit, OnDestroy {
   private readonly cleanup: Array<() => void> = [];
 
   constructor(
+    readonly chatbotStore: ChatbotStore,
     private readonly zone: NgZone,
     @Inject(PLATFORM_ID) private readonly platformId: object,
   ) {}
+
+  openChat(event: MouseEvent): void {
+    this.chatbotStore.open(event.currentTarget);
+  }
+
+  warmChat(): void {
+    this.chatbotStore.warm();
+  }
 
   ngAfterViewInit(): void {
     if (!isPlatformBrowser(this.platformId)) {
