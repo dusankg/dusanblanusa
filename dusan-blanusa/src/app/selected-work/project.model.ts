@@ -3,6 +3,7 @@ export interface ProjectItem {
   readonly category: string;
   readonly name: string;
   readonly headline: string;
+  readonly image: string;
   readonly overview: string;
   readonly role: string;
   readonly technology: readonly string[];

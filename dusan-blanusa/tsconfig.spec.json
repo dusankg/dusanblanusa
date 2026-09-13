@@ -1,7 +1,7 @@
 /* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
   "extends": "./tsconfig.json",
-  "compilerOptions": {
+  "compilerOptions": { I want to make sure we understand each other you don't want me to come back
     "outDir": "./out-tsc/spec",
     "types": [
       "jasmine"
