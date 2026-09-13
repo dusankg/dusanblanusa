@@ -27,6 +27,7 @@ export class SelectedWorkComponent implements AfterViewInit, OnDestroy {
     {
       number: '01', category: 'Agentic AI', name: 'Enterprise Browser Agent',
       headline: 'Automating complex browser workflows with LLMs and vision.',
+      image: 'assets/images/projects_images/browser_agent.png',
       overview: 'Designed and developed a browser automation agent for data collection, research, and information retrieval. Combined LLM-based reasoning, deep-agent workflows, Playwright, and vision models to interact with complex web interfaces, including authenticated internal services.',
       role: 'Technology Lead · Team of 2',
       technology: ['Python', 'Playwright', 'LangChain', 'Vision LLMs'],
@@ -35,6 +36,7 @@ export class SelectedWorkComponent implements AfterViewInit, OnDestroy {
     {
       number: '02', category: 'Cloud & Data', name: '400+ TB Data Transformation',
       headline: 'Rebuilding enterprise storage workflows at scale.',
+      image: 'assets/images/projects_images/data_migration.png',
       overview: 'Reorganized enterprise data storage and migrated more than 400 TB from on-premises systems to AWS. Designed migration pipelines, centralized storage, metadata processes, and standardized structures while coordinating planning across the organization.',
       role: 'ML / Data Engineer · Independent contributor',
       technology: ['Python', 'AWS', 'Linux', 'Airflow', 'Superset'],
@@ -44,6 +46,7 @@ export class SelectedWorkComponent implements AfterViewInit, OnDestroy {
     {
       number: '03', category: 'Multi-Agent AI', name: 'Text-to-SQL & Router Agent',
       headline: 'Adding memory and intelligent routing to enterprise data access.',
+      image: 'assets/images/projects_images/rauter_agent.png',
       overview: 'Designed and implemented memory for an existing text-to-SQL agent and an intent router for orchestration across specialized agents. Built FastAPI and Redis infrastructure for sessions, background processing, and scalable integration with enterprise services.',
       role: 'Technology Lead · Team of 4',
       technology: ['Python', 'LlamaIndex', 'Mem0', 'FastAPI', 'Redis', 'OpenSearch', 'Qdrant', 'AWS'],
