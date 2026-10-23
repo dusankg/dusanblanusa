@@ -5,7 +5,7 @@
     <button
       class="menu-toggle"
       type="button"
-      aria-label="Toggle navigation"
+      [attr.aria-label]="menuOpen ? 'Close navigation' : 'Open navigation'"
       aria-controls="primary-navigation"
       [attr.aria-expanded]="menuOpen"
       (click)="toggleMenu()"
@@ -13,7 +13,12 @@
       <span></span><span></span>
     </button>
 
-    <div class="nav-wrap" [class.is-open]="menuOpen">
+    <div
+      class="nav-wrap"
+      [class.is-open]="menuOpen"
+      [attr.inert]="isMobileNavigation && !menuOpen ? '' : null"
+      [attr.aria-hidden]="isMobileNavigation && !menuOpen ? 'true' : null"
+    >
       <nav id="primary-navigation" aria-label="Primary navigation">
         @for (item of navItems; track item.href) {
           <a [href]="item.href" (click)="closeMenu()">{{ item.label }}</a>

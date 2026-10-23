@@ -9,6 +9,19 @@
   color: var(--paper);
   background: var(--forest-deep);
   border-block: 1px solid rgba(244, 245, 240, 0.12);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 24px, #000 calc(100% - 24px), transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 24px, #000 calc(100% - 24px), transparent);
+}
+
+@media (max-width: 560px) {
+  .ticker {
+    padding-block: 18px;
+  }
+
+  span {
+    padding-inline: 20px;
+    font-size: 0.7rem;
+  }
 }
 
 .ticker-track,

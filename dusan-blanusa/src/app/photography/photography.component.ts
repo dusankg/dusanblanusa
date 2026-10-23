@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-photography',
@@ -6,9 +6,9 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './photography.component.html',
   styleUrls: ['./photography.component.css']
 })
-export class PhotographyComponent{
-  public slikaZaPrikaz: string = "";
-  public nizSlika: string[]  = [
+export class PhotographyComponent implements OnDestroy {
+  slikaZaPrikaz = '';
+  readonly nizSlika: readonly string[] = [
   'https://live.staticflickr.com/65535/52781083167_781786c092_k.jpg', 
   'https://live.staticflickr.com/65535/52781867289_16bcac7145_k.jpg',
   'https://live.staticflickr.com/65535/52782029155_7196164cb7_k.jpg',
@@ -19,34 +19,42 @@ export class PhotographyComponent{
   'https://live.staticflickr.com/65535/52782088103_df4f4f9b0a_k.jpg',
   'https://live.staticflickr.com/65535/52781622366_ca06d75645_k.jpg',
   'https://live.staticflickr.com/65535/52781868419_30742053db_k.jpg']
-  public hiddenBigImage: boolean = true;
+  hiddenBigImage = true;
+  activeImageIndex = 0;
 
 
 
-  public showImage(image:string){
+  showImage(image: string, index: number): void {
     this.slikaZaPrikaz = image;
+    this.activeImageIndex = index;
     this.hiddenBigImage = false;
+    document.body.style.overflow = 'hidden';
   }
 
-  public nextImage(){
-    var index = this.nizSlika.indexOf(this.slikaZaPrikaz)
-    index += 1;
-    if(index >= this.nizSlika.length){
-      index = 0;
-    }
-    this.slikaZaPrikaz = this.nizSlika[index];
+  nextImage(): void {
+    this.activeImageIndex = (this.activeImageIndex + 1) % this.nizSlika.length;
+    this.slikaZaPrikaz = this.nizSlika[this.activeImageIndex];
   }
 
-  public previousImage(){
-    var index = this.nizSlika.indexOf(this.slikaZaPrikaz)
-    index -= 1;
-    if(index < 0){
-      index = this.nizSlika.length - 1;
-    }
-    this.slikaZaPrikaz = this.nizSlika[index];
+  previousImage(): void {
+    this.activeImageIndex = (this.activeImageIndex - 1 + this.nizSlika.length) % this.nizSlika.length;
+    this.slikaZaPrikaz = this.nizSlika[this.activeImageIndex];
   }
 
-  public closeBigImage(){
+  closeBigImage(): void {
     this.hiddenBigImage = true;
+    document.body.style.removeProperty('overflow');
+  }
+
+  @HostListener('document:keydown', ['$event'])
+  handleKeyboard(event: KeyboardEvent): void {
+    if (this.hiddenBigImage) return;
+    if (event.key === 'Escape') this.closeBigImage();
+    if (event.key === 'ArrowLeft') this.previousImage();
+    if (event.key === 'ArrowRight') this.nextImage();
+  }
+
+  ngOnDestroy(): void {
+    document.body.style.removeProperty('overflow');
   }
 }

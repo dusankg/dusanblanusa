@@ -22,6 +22,7 @@
   --card-border: rgba(17, 21, 18, 0.13);
   --card-shadow: rgba(16, 42, 32, 0.15);
   --focus: #2d694e;
+  --ai-accent: #df762f;
   --container: 1400px;
   --page-gutter: clamp(24px, 5vw, 80px);
   --header-height: 76px;
@@ -53,6 +54,7 @@ html[data-theme='dark'] {
   --card-border: rgba(244, 245, 240, 0.13);
   --card-shadow: rgba(0, 0, 0, 0.42);
   --focus: #9fc1ab;
+  --ai-accent: #f09a5c;
 }
 
 *,
@@ -74,6 +76,10 @@ body {
   overflow-x: hidden;
   overflow-x: clip;
   transition: color 320ms ease, background-color 320ms ease;
+}
+
+body.mobile-menu-open {
+  overflow: hidden;
 }
 
 section,
@@ -138,6 +144,22 @@ button {
   font-weight: 500;
   letter-spacing: -0.055em;
   line-height: 0.98;
+}
+
+@media (max-width: 560px) {
+  :root {
+    --page-gutter: clamp(18px, 5vw, 24px);
+    --header-height: 68px;
+  }
+
+  .section-kicker {
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-size: clamp(2.35rem, 11.5vw, 3.35rem);
+    line-height: 1;
+  }
 }
 
 .reveal-on-scroll {
