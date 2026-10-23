@@ -14,13 +14,12 @@
   padding: 8px 17px 8px 9px;
   color: var(--paper);
   background: var(--forest);
-  border: 1px solid color-mix(in srgb, var(--paper) 18%, transparent);
+  border: 1px solid rgba(244, 245, 240, 0.18);
   border-radius: 999px;
   box-shadow: 0 10px 28px color-mix(in srgb, var(--card-shadow) 70%, transparent);
   cursor: pointer;
   font-size: 0.76rem;
   font-weight: 700;
-  letter-spacing: 0.02em;
   opacity: 0;
   pointer-events: none;
   transform: translateY(10px);
@@ -36,6 +35,8 @@
 .chat-launcher:hover {
   background: var(--forest-deep);
 }
+
+@media (min-width:901px){.chat-launcher{border:2px solid var(--ai-accent)}}
 
 .launcher-monogram,
 .chat-monogram {

@@ -124,6 +124,20 @@ h1 {
   display: none;
 }
 
+@media (min-width: 901px) {
+  .ask-ai-button {
+    border-color: var(--ai-accent);
+    border-width: 2px;
+  }
+
+  .ask-ai-button:hover,
+  .ask-ai-button:focus-visible {
+    color: var(--page-bg);
+    background: var(--ai-accent);
+    border-color: var(--ai-accent);
+  }
+}
+
 .portrait {
   --reveal-x: 52%;
   --reveal-y: 34%;
