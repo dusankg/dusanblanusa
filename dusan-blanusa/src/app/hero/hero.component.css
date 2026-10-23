@@ -120,6 +120,10 @@ h1 {
   border-color: var(--page-text);
 }
 
+.mobile-cv-button {
+  display: none;
+}
+
 .portrait {
   --reveal-x: 52%;
   --reveal-y: 34%;
@@ -272,6 +276,14 @@ h1 {
 
   .scroll-label {
     display: none;
+  }
+
+  .ask-ai-button {
+    display: none;
+  }
+
+  .mobile-cv-button {
+    display: inline-flex;
   }
 }
 
