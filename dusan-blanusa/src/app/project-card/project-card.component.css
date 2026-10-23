@@ -234,7 +234,7 @@ li {
   }
 
   .project-visual {
-    min-height: 310px;
+    min-height: clamp(250px, 78vw, 310px);
   }
 
   .project-content {
@@ -242,7 +242,13 @@ li {
   }
 
   .project-meta {
+    flex-wrap: wrap;
+    gap: 8px 16px;
     margin-bottom: 24px;
+  }
+
+  h3 {
+    font-size: clamp(2.15rem, 11vw, 3rem);
   }
 
   dl {

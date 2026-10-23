@@ -78,6 +78,7 @@
   grid-template-rows: auto minmax(0, 1fr) auto;
   width: clamp(400px, 32vw, 460px);
   max-width: 100%;
+  height: 100vh;
   height: 100dvh;
   color: var(--page-text);
   background: var(--page-bg);
@@ -423,6 +424,29 @@
   .chat-conversation {
     padding-right: max(18px, env(safe-area-inset-right));
     padding-left: max(18px, env(safe-area-inset-left));
+  }
+}
+
+@media (max-width: 420px) {
+  .chat-header {
+    grid-template-columns: 38px minmax(0, 1fr) 42px;
+    gap: 10px;
+    padding-top: max(16px, env(safe-area-inset-top));
+    padding-bottom: 14px;
+  }
+
+  .chat-monogram {
+    width: 38px;
+    height: 38px;
+  }
+
+  .chat-conversation {
+    padding-top: 20px;
+    padding-bottom: 22px;
+  }
+
+  .chat-composer-wrap {
+    padding-inline: max(12px, env(safe-area-inset-left)) max(12px, env(safe-area-inset-right));
   }
 }
 

@@ -94,3 +94,18 @@ li {
     gap: 14px;
   }
 }
+
+@media (max-width: 560px) {
+  header {
+    gap: 8px;
+    margin-bottom: 54px;
+  }
+
+  article {
+    padding-block: 30px;
+  }
+
+  .credentials {
+    margin-top: 64px;
+  }
+}

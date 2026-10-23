@@ -149,6 +149,8 @@ nav a:focus-visible::after {
   height: 1px;
   margin: 6px 0;
   background: currentColor;
+  transform-origin: center;
+  transition: transform 220ms ease;
 }
 
 @media (max-width: 860px) {
@@ -164,9 +166,11 @@ nav a:focus-visible::after {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: center;
-    padding: 96px var(--page-gutter) 48px;
+    justify-content: flex-start;
+    padding: calc(var(--header-height) + 34px) max(var(--page-gutter), env(safe-area-inset-right)) max(34px, env(safe-area-inset-bottom)) max(var(--page-gutter), env(safe-area-inset-left));
     background: var(--page-bg);
+    overflow-y: auto;
+    overscroll-behavior: contain;
     opacity: 0;
     pointer-events: none;
     transform: translateY(-12px);
@@ -177,6 +181,14 @@ nav a:focus-visible::after {
     opacity: 1;
     pointer-events: auto;
     transform: translateY(0);
+  }
+
+  .menu-toggle[aria-expanded='true'] span:first-child {
+    transform: translateY(3.5px) rotate(45deg);
+  }
+
+  .menu-toggle[aria-expanded='true'] span:last-child {
+    transform: translateY(-3.5px) rotate(-45deg);
   }
 
   nav {
@@ -194,5 +206,19 @@ nav a:focus-visible::after {
   .header-actions {
     align-items: center;
     flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 860px) and (max-height: 600px) {
+  .nav-wrap {
+    padding-top: calc(var(--header-height) + 18px);
+  }
+
+  nav {
+    gap: 10px;
+  }
+
+  nav a {
+    font-size: clamp(1.35rem, 6vh, 2rem);
   }
 }

@@ -76,6 +76,10 @@ body {
   transition: color 320ms ease, background-color 320ms ease;
 }
 
+body.mobile-menu-open {
+  overflow: hidden;
+}
+
 section,
 footer,
 .project-card,
@@ -138,6 +142,22 @@ button {
   font-weight: 500;
   letter-spacing: -0.055em;
   line-height: 0.98;
+}
+
+@media (max-width: 560px) {
+  :root {
+    --page-gutter: clamp(18px, 5vw, 24px);
+    --header-height: 68px;
+  }
+
+  .section-kicker {
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-size: clamp(2.35rem, 11.5vw, 3.35rem);
+    line-height: 1;
+  }
 }
 
 .reveal-on-scroll {
