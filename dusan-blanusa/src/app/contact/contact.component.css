@@ -19,78 +19,86 @@ h2 {
 }
 
 .contact-bottom {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 50px;
-  align-items: end;
   margin-top: clamp(56px, 8vw, 108px);
 }
 
-.contact-bottom > p {
-  max-width: 600px;
-  margin: 0;
-  color: rgba(244, 245, 240, 0.66);
-  font-size: clamp(1rem, 1.3vw, 1.18rem);
-  line-height: 1.72;
+.contact-details {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  width: min(100%, 640px);
+  margin-inline: auto;
+  border-top: 1px solid rgba(244, 245, 240, 0.16);
 }
 
-.conversation {
-  display: flex;
+.contact-detail {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr) 20px;
+  gap: 16px;
   align-items: center;
-  justify-content: space-between;
-  gap: 30px;
-  padding: 18px 0;
-  border-bottom: 1px solid rgba(244, 245, 240, 0.45);
-  font-size: clamp(1.45rem, 3vw, 2.6rem);
-  font-weight: 500;
-  letter-spacing: -0.04em;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(244, 245, 240, 0.16);
   text-decoration: none;
 }
 
-.conversation i {
+.contact-icon {
   display: grid;
-  flex: 0 0 54px;
-  width: 54px;
-  height: 54px;
+  width: 42px;
+  height: 42px;
   place-items: center;
-  border: 1px solid rgba(244, 245, 240, 0.34);
+  color: #a9beae;
+  border: 1px solid rgba(244, 245, 240, 0.2);
   border-radius: 50%;
-  font-style: normal;
-  transition: color 220ms ease, background-color 220ms ease;
+  transition: color 220ms ease, background-color 220ms ease, border-color 220ms ease;
 }
 
-.conversation:hover i {
+.contact-icon svg {
+  width: 19px;
+  height: 19px;
+}
+
+.contact-copy {
+  display: grid;
+  gap: 5px;
+  min-width: 0;
+}
+
+.contact-label {
+  color: #a9beae;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.contact-value {
+  font-size: clamp(1rem, 1.6vw, 1.35rem);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.contact-arrow {
+  color: #a9beae;
+  font-size: 1.25rem;
+  transition: color 220ms ease, transform 220ms ease;
+}
+
+.contact-detail:hover .contact-icon,
+.contact-detail:focus-visible .contact-icon {
   color: var(--forest-deep);
   background: var(--paper);
+  border-color: var(--paper);
 }
 
-.contact-actions {
-  display: grid;
-  gap: 16px;
-}
-
-.ask-ai {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  min-height: 44px;
-  padding: 0;
-  color: rgba(244, 245, 240, 0.72);
-  text-align: left;
-  background: transparent;
-  border: 0;
-  cursor: pointer;
-  font-size: 0.8rem;
-}
-
-.ask-ai span {
-  font-weight: 800;
-  letter-spacing: -0.05em;
-}
-
-.ask-ai:hover {
+.contact-detail:hover .contact-arrow,
+.contact-detail:focus-visible .contact-arrow {
   color: var(--paper);
+  transform: translate(3px, -3px);
+}
+
+.contact-detail:focus-visible {
+  outline-color: var(--paper);
 }
 
 nav {
@@ -115,30 +123,9 @@ nav a:hover {
   color: var(--paper);
 }
 
-@media (max-width: 760px) {
-  .contact-bottom {
-    grid-template-columns: 1fr;
-  }
-}
-
 @media (max-width: 560px) {
   h2 {
     font-size: clamp(3rem, 15vw, 4.25rem);
     line-height: 0.92;
-  }
-
-  .contact-bottom {
-    gap: 36px;
-  }
-
-  .conversation {
-    gap: 16px;
-    font-size: clamp(1.3rem, 7vw, 1.75rem);
-  }
-
-  .conversation i {
-    flex-basis: 46px;
-    width: 46px;
-    height: 46px;
   }
 }

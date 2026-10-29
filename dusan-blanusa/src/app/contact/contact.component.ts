@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { ChatbotStore } from '../chatbot/chatbot.store';
 
 @Component({
   selector: 'app-contact',
@@ -9,16 +8,6 @@ import { ChatbotStore } from '../chatbot/chatbot.store';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ContactComponent {
-  readonly email = 'dusan@dusan.blanusa.com';
+  readonly email = 'blanusadusan@yahoo.com';
   readonly mailto = `mailto:${this.email}`;
-
-  constructor(readonly chatbotStore: ChatbotStore) {}
-
-  openChat(event: MouseEvent): void {
-    this.chatbotStore.open(event.currentTarget);
-  }
-
-  warmChat(): void {
-    this.chatbotStore.warm();
-  }
 }
