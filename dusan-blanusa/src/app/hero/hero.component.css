@@ -60,18 +60,9 @@ h1 {
   line-height: 0.89;
 }
 
-.statement {
-  max-width: 520px;
-  margin: clamp(28px, 4vh, 44px) 0 0;
-  font-size: clamp(1.35rem, 2vw, 1.85rem);
-  font-weight: 500;
-  letter-spacing: -0.035em;
-  line-height: 1.2;
-}
-
 .supporting-copy {
   max-width: 520px;
-  margin: 18px 0 0;
+  margin: clamp(28px, 4vh, 44px) 0 0;
   color: var(--muted);
   font-size: clamp(0.96rem, 1.1vw, 1.08rem);
   line-height: 1.62;
@@ -312,12 +303,8 @@ h1 {
     line-height: 1.5;
   }
 
-  .statement {
-    margin-top: 24px;
-    font-size: clamp(1.22rem, 6vw, 1.5rem);
-  }
-
   .supporting-copy {
+    margin-top: 24px;
     font-size: 0.94rem;
     line-height: 1.55;
     overflow-wrap: anywhere;
