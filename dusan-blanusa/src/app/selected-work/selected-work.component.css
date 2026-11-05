@@ -11,14 +11,6 @@
   margin-bottom: clamp(76px, 10vw, 140px);
 }
 
-.work-heading p:last-child {
-  max-width: 330px;
-  margin: 0 0 6px;
-  color: var(--muted);
-  font-size: 0.92rem;
-  line-height: 1.65;
-}
-
 .project-stack {
   position: relative;
   display: block;

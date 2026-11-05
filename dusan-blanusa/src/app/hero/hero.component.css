@@ -60,7 +60,15 @@ h1 {
   line-height: 0.89;
 }
 
+.hero-intro {
+  width: fit-content;
+  max-width: 100%;
+}
+
 .supporting-copy {
+  text-align: justify;
+  width: 0;
+  min-width: 100%;
   max-width: 520px;
   margin: clamp(28px, 4vh, 44px) 0 0;
   color: var(--muted);
