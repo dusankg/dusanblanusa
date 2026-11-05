@@ -7,25 +7,12 @@
 
   <div class="project-content">
     <div class="project-meta">
-      <span>Project {{ project.number }}</span>
       <span>{{ project.category }}</span>
     </div>
     <h3>{{ project.name }}</h3>
-    <p class="headline">{{ project.headline }}</p>
     <p class="overview">{{ project.overview }}</p>
 
-    <button
-      type="button"
-      class="details-toggle"
-      [attr.aria-expanded]="expanded"
-      [attr.aria-controls]="panelId"
-      (click)="toggleDetails()"
-    >
-      <span>{{ expanded ? 'Close overview' : 'Project overview' }}</span>
-      <i aria-hidden="true"></i>
-    </button>
-
-    <div class="details" [id]="panelId" [class.is-expanded]="expanded" [attr.aria-hidden]="!expanded">
+    <div class="details">
       <div class="details-inner">
         <dl>
           <div>
@@ -41,13 +28,6 @@
             <dd>{{ project.outcome }}</dd>
           </div>
         </dl>
-        @if (project.outcomePoints?.length) {
-          <ul aria-label="Project outcomes">
-            @for (point of project.outcomePoints; track point) {
-              <li>{{ point }}</li>
-            }
-          </ul>
-        }
       </div>
     </div>
   </div>

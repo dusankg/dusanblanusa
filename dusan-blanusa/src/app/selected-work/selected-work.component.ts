@@ -37,11 +37,10 @@ export class SelectedWorkComponent implements AfterViewInit, OnDestroy {
       number: '02', category: 'Cloud & Data', name: '400+ TB Data Transformation',
       headline: 'Rebuilding enterprise storage workflows at scale.',
       image: 'assets/images/projects_images/data_migration.png',
-      overview: 'Reorganized enterprise data storage and migrated more than 400 TB from on-premises systems to AWS. Designed migration pipelines, centralized storage, metadata processes, and standardized structures while coordinating planning across the organization.',
+      overview: 'Migrated 400+ TB from on-premises systems to AWS and standardized storage workflows across 12 teams, supporting 30+ employees and integrating 2 acquired companies.',
       role: 'ML / Data Engineer · Independent contributor',
       technology: ['Python', 'AWS', 'Linux', 'Airflow', 'Superset'],
       outcome: 'Delivered a large-scale migration with minimal disruption while consolidating data and workflows across the enterprise.',
-      outcomePoints: ['400+ TB migrated', '12 teams coordinated', '30+ employees supported', '2 acquired companies integrated'],
     },
     {
       number: '03', category: 'Multi-Agent AI', name: 'Text-to-SQL & Router Agent',

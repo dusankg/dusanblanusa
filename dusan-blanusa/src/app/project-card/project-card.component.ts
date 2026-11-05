@@ -11,15 +11,6 @@ import { ProjectItem } from '../selected-work/project.model';
 export class ProjectCardComponent {
   @Input({ required: true }) project!: ProjectItem;
   @Input({ required: true }) index = 0;
-  expanded = false;
 
   constructor(readonly host: ElementRef<HTMLElement>) {}
-
-  get panelId(): string {
-    return `project-details-${this.project.number}`;
-  }
-
-  toggleDetails(): void {
-    this.expanded = !this.expanded;
-  }
 }

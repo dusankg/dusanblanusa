@@ -8,5 +8,4 @@ export interface ProjectItem {
   readonly role: string;
   readonly technology: readonly string[];
   readonly outcome: string;
-  readonly outcomePoints?: readonly string[];
 }
