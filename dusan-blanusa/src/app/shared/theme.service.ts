@@ -40,7 +40,7 @@ export class ThemeService {
     this.document.documentElement.dataset['theme'] = theme;
     this.document.documentElement.style.colorScheme = theme;
     this.document.querySelector<HTMLMetaElement>('meta[name="theme-color"]')
-      ?.setAttribute('content', theme === 'dark' ? '#111512' : '#f4f5f0');
+      ?.setAttribute('content', theme === 'dark' ? '#111512' : '#f4f3f2');
 
     if (persist) {
       try {

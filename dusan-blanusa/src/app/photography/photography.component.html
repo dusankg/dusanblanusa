@@ -1,39 +1,97 @@
-<main class="photography-page">
-  <header class="photo-header container-shell">
-    <a class="identity" href="/" aria-label="Dušan Blanuša, return to portfolio">DB.</a>
-    <a class="back-link" href="/">Back to portfolio <span aria-hidden="true">↗</span></a>
+<main class="photography-page" [attr.inert]="hiddenBigImage ? null : ''">
+  <header class="photo-header">
+    <div class="photo-header-inner container-shell">
+      <a class="identity" href="/" aria-label="Dušan Blanuša, return to portfolio">DB.</a>
+      <div class="photo-header-actions">
+        <button
+          class="theme-toggle"
+          type="button"
+          [attr.aria-label]="themeService.isDark() ? 'Switch to light theme' : 'Switch to dark theme'"
+          [attr.aria-pressed]="themeService.isDark()"
+          (click)="themeService.toggle()"
+        >
+          <span class="theme-icon" aria-hidden="true"></span>
+          <span>{{ themeService.isDark() ? 'Light' : 'Dark' }}</span>
+        </button>
+        <a class="back-link" href="/">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m7 7-7-7 7-7"/></svg>
+          Back to portfolio
+        </a>
+      </div>
+    </div>
   </header>
 
-  <section class="photo-intro container-shell" aria-labelledby="photography-title">
-    <p class="section-kicker">Personal work</p>
-    <h1 id="photography-title">Photography</h1>
-    <p>
-      Photography is how I hold onto places, people, and small moments that would otherwise pass too
-      quickly. This is a selection of landscapes, portraits, and celebrations photographed over the years.
-    </p>
+  <section class="photo-intro" aria-labelledby="photography-title">
+    <div class="container-shell">
+      <h1 id="photography-title">Photography<span aria-hidden="true">.</span></h1>
+      <p class="photo-intro-copy">
+        Photography is how I hold onto places, people, and small moments that would otherwise pass too
+        quickly. A selection of landscapes, portraits, and celebrations photographed over the years.
+      </p>
+    </div>
   </section>
 
-  <section class="photo-gallery container-shell" aria-label="Photography gallery">
-    @for (image of nizSlika; track image; let index = $index) {
-      <button type="button" class="photo-tile" (click)="showImage(image, index)" [attr.aria-label]="'Open photograph ' + (index + 1)">
-        <img [src]="image" [alt]="'Photograph ' + (index + 1) + ' by Dušan Blanuša'" loading="lazy">
-        <span aria-hidden="true">{{ (index + 1).toString().padStart(2, '0') }}</span>
-      </button>
-    }
+  <section class="photo-collection container-shell" aria-label="Photography gallery">
+    <div class="photo-gallery">
+      @for (row of photoRows; track row[0].src) {
+        <div class="photo-row">
+          @for (image of row; track image.src) {
+            @let index = nizSlika.indexOf(image);
+            <button
+              type="button"
+              class="photo-tile"
+              [class.portrait]="image.height > image.width"
+              [style.aspect-ratio]="image.width + ' / ' + image.height"
+              [style.--photo-ratio]="image.width / image.height"
+              (click)="showImage(image.src, index)"
+              [attr.aria-label]="'Open photograph ' + (index + 1)"
+              aria-haspopup="dialog"
+            >
+              <img
+                [src]="image.src"
+                [attr.width]="image.width"
+                [attr.height]="image.height"
+                [alt]="'Photograph ' + (index + 1) + ' by Dušan Blanuša'"
+                loading="lazy"
+                decoding="async"
+              >
+            </button>
+          }
+        </div>
+      }
+    </div>
+    <footer class="collection-footer">
+      <a class="portfolio-link" href="/">
+        Back to portfolio
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7H7m10 0v10"/></svg>
+      </a>
+    </footer>
   </section>
 </main>
 
 @if (!hiddenBigImage) {
   <div class="lightbox" role="dialog" aria-modal="true" aria-label="Photograph viewer" (click)="closeBigImage()">
-    <div class="lightbox-panel" (click)="$event.stopPropagation()">
+    <div #lightboxPanel class="lightbox-panel" (click)="$event.stopPropagation()">
       <div class="lightbox-toolbar">
-        <span>{{ activeImageIndex + 1 }} / {{ nizSlika.length }}</span>
-        <button type="button" (click)="closeBigImage()" aria-label="Close photograph viewer">Close</button>
+        <div class="viewer-meta">
+          <span class="viewer-title">Photography</span>
+          <span class="viewer-count" aria-live="polite">{{ activeImageIndex + 1 }} / {{ nizSlika.length }}</span>
+        </div>
+        <button #closeControl class="close-control" type="button" (click)="closeBigImage()" aria-label="Close photograph viewer" aria-keyshortcuts="Escape">
+          Close
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg>
+        </button>
       </div>
       <img [src]="slikaZaPrikaz" [alt]="'Photograph ' + (activeImageIndex + 1) + ' by Dušan Blanuša'">
       <div class="lightbox-controls">
-        <button type="button" (click)="previousImage()" aria-label="Show previous photograph">← Previous</button>
-        <button type="button" (click)="nextImage()" aria-label="Show next photograph">Next →</button>
+        <button type="button" (click)="previousImage()" aria-label="Show previous photograph" aria-keyshortcuts="ArrowLeft">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m7 7-7-7 7-7"/></svg>
+          Previous
+        </button>
+        <button type="button" (click)="nextImage()" aria-label="Show next photograph" aria-keyshortcuts="ArrowRight">
+          Next
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+        </button>
       </div>
     </div>
   </div>
