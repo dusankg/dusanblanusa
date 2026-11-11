@@ -21,8 +21,11 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 ## Chatbot API
 
 The chatbot endpoints are configured in `src/environments/environment.ts` as `chatbotApiUrl`
-and `chatbotWarmupUrl`. The warm-up URL is called on chat intent to wake the free-tier backend.
-It must accept JSON `POST` requests with `question` and `chat_history`, return a JSON object
+and `chatbotWarmupUrl`. On every browser page load, the app sends a background `GET` request
+to the warm-up URL to wake the free-tier backend, including direct visits to `/photography`.
+Chat intent can also trigger a warm-up; in-flight requests are deduplicated and successful
+warm-ups have a five-minute cooldown. Warm-up failures do not block the site or open the chat.
+The chat API must accept JSON `POST` requests with `question` and `chat_history`, return a JSON object
 containing a non-empty `answer` string, and allow CORS requests from `https://dusanblanusa.com`
 and any local development origin that should be supported.
 
